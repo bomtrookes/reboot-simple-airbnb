@@ -4,7 +4,7 @@
 </div>
 
 <div class="container">
-  <img src="<%= @flat.picture_url %>" alt="<%= @flat.name %>">
+  <img src="<%= @flat.picture_url %>" alt="<%= @flat.name %>" style="max-width:500px">
 </div>
 
 <div class="container">
@@ -20,3 +20,15 @@
   <input id="to">
   <button>Submit</button>
 </div>
+
+<hr>
+<div class="container">
+  <h2>Reviews</h2>
+  <% @reviews.each do |review| %>
+    <p><%= review.content %></p>
+    <p><%= review.rating %>/5</p>
+    <br>
+  <% end %>
+</div>
+  <hr>
+<%= render "reviews/review" %>
