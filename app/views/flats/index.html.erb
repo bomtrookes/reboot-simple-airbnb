@@ -1,0 +1,28 @@
+<div class="container">
+<h1>All Flats</h1>
+
+  <div class="row" style="display:flex;justify-content:center">
+
+    <% @flats.each do |flat| %>
+      <div class="card col-md-3 m-2">
+
+        <img src="<%= flat.picture_url %>" alt="<%= flat.name %>">
+        <h3><%= flat.name %></h3>
+        <p><%= flat.address %></p>
+
+        <div class="d-flex justify-content-between">
+          <p>Guests: <%= flat.number_of_guests %></p>
+          <p>£<%= flat.price_per_night %></p>
+        </div>
+
+        <div class="actions">
+          <%= link_to "More Info", flat_path(flat) %>
+          <%= link_to "Edit", edit_flat_path(flat) %>
+          <%= link_to "Remove", flat_path(flat), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        </div>
+
+      </div>
+    <% end %>
+
+  </div>
+</div>
